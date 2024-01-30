@@ -2,6 +2,7 @@ import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale/pt-BR'
 
 import { Header } from '@/components/header'
+import { SchedulingCard } from '@/components/scheduling-card'
 
 import { Search } from './components/search'
 
@@ -21,6 +22,13 @@ export default function Home() {
 
       <div className="mt-6 px-5">
         <Search />
+      </div>
+
+      <div className="mt-6 space-y-3 px-5">
+        <h2 className="text-sm font-bold uppercase text-gray-400">
+          Agendamentos
+        </h2>
+        <SchedulingCard />
       </div>
     </>
   )
