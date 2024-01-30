@@ -2,9 +2,8 @@ import { MenuIcon } from 'lucide-react'
 import Image from 'next/image'
 import { FC } from 'react'
 
+import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-
-import { Button } from './ui/button'
 
 export const Header: FC = () => {
   return (
