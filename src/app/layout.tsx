@@ -4,6 +4,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { FC, ReactNode } from 'react'
 
+import { Footer } from '@/components/footer'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -18,7 +20,10 @@ type RootLayoutProps = {
 const RootLayout: FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <body className={`${inter.className} dark`}>{children}</body>
+      <body className={`${inter.className} dark`}>
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }
