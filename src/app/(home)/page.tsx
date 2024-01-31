@@ -3,10 +3,13 @@ import { ptBR } from 'date-fns/locale/pt-BR'
 
 import { Header } from '@/components/header'
 import { SchedulingCard } from '@/components/scheduling-card'
+import { db } from '@/lib/prisma'
 
+import { BarbershopCard } from './components/barbershop-card'
 import { Search } from './components/search'
 
-export default function Home() {
+export default async function Home() {
+  const barbershops = await db.barbershop.findMany()
   return (
     <>
       <Header />
@@ -29,6 +32,18 @@ export default function Home() {
           Agendamentos
         </h2>
         <SchedulingCard />
+      </div>
+
+      <div className="mt-6">
+        <h2 className="mb-3 px-5 text-xs font-bold uppercase text-gray-400">
+          Recomendados
+        </h2>
+
+        <div className="flex gap-4 overflow-x-auto px-5 [&::-webkit-scrollbar]:hidden">
+          {barbershops.map((barbershop: any) => (
+            <BarbershopCard key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
       </div>
     </>
   )
